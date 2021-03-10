@@ -2,6 +2,7 @@
 
 using namespace std;
 
+//Fungsi memasukan array dua dimensi dinamis
 void latihanarray()
 {
     int a[2][3];
@@ -27,6 +28,7 @@ void latihanarray()
     }
 }
 
+//Fungsi membuat silang menggunakan array 2 dimensi
 void buatSilang()
 {
     cout << "Masukan ordo array: ";
@@ -50,6 +52,7 @@ void buatSilang()
     }
 }
 
+//Fungsi penambahan matrik
 void tambahmatrik()
 {
     int matrixa[3][3], matrixb[3][3], total[3][3];
@@ -108,10 +111,42 @@ void tambahmatrik()
     }
 }
 
+//Fungsi perkalian matrik
+void kalimatrik()
+{
+    //Deklarasi array
+    int total[2][2], matrika[2][2], matrikb[2][2];
+
+    //Memasukan nilai secara dinamis ke dalam matrik A
+    cout << "Masukan nilai ke matrik A:" << endl;
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < 2; j++)
+        {
+            cout << "Masukan matrik A [" << i << "][" << j << "]: ";
+
+            cin >> matrika[i][j];
+        }
+    }
+
+    //Memasukan nilai secara dinamis ke dalam matrik B
+    cout << "Masukan nilai ke matrik B" << endl;
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < 2; j++)
+        {
+            cout << "Masukan matrik B [" << i << "][" << j << "]: ";
+
+            cin >> matrika[i][j];
+        }
+    }
+}
+
 int main()
 {
 
-    
+    kalimatrik();
+
     cin.get();
     return 0;
 }
