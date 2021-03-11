@@ -115,29 +115,106 @@ void tambahmatrik()
 void kalimatrik()
 {
     //Deklarasi array
-    int total[2][2], matrika[2][2], matrikb[2][2];
+    int total[100][100], matrika[100][100], matrikb[100][100], tmp = 0, a, b, c, d;
 
-    //Memasukan nilai secara dinamis ke dalam matrik A
-    cout << "Masukan nilai ke matrik A:" << endl;
-    for (int i = 0; i < 2; i++)
+    cout << "Masukan jumlah baris matrik A : ";
+    cin >> a;
+
+    cout << "Masukan jumlah kolom matrik A : ";
+    cin >> b;
+
+    cout << "Masukan jumlah baris matrik B : ";
+    cin >> c;
+
+    cout << "Masukan jumlah baris matrik B : ";
+    cin >> d;
+
+    //Verifikasi matrik apakah dapat dikali
+    if (b != c)
     {
-        for (int j = 0; j < 2; j++)
-        {
-            cout << "Masukan matrik A [" << i << "][" << j << "]: ";
-
-            cin >> matrika[i][j];
-        }
+        cout << "Matrik tidak dapat dikali";
     }
-
-    //Memasukan nilai secara dinamis ke dalam matrik B
-    cout << "Masukan nilai ke matrik B" << endl;
-    for (int i = 0; i < 2; i++)
+    else
     {
-        for (int j = 0; j < 2; j++)
+        //Memasukan nilai secara dinamis ke dalam matrik A
+        cout << "Masukan nilai ke matrik A:" << endl;
+        for (int i = 0; i < a; i++)
         {
-            cout << "Masukan matrik B [" << i << "][" << j << "]: ";
+            for (int j = 0; j < b; j++)
+            {
+                cout << "Masukan matrik A [" << i << "][" << j << "]: ";
 
-            cin >> matrika[i][j];
+                cin >> matrika[i][j];
+            }
+        }
+
+        cout << endl;
+        //Memasukan nilai secara dinamis ke dalam matrik B
+        cout << "Masukan nilai ke matrik B" << endl;
+        for (int i = 0; i < c; i++)
+        {
+            for (int j = 0; j < d; j++)
+            {
+                cout << "Masukan matrik B [" << i << "][" << j << "]: ";
+
+                cin >> matrikb[i][j];
+            }
+        }
+
+        cout << endl;
+        //Menampilkan nilai matrik a
+        cout << "Matrik A : " << endl;
+
+        for (int i = 0; i < a; i++)
+        {
+            for (int j = 0; j < b; j++)
+            {
+                cout << matrika[i][j] << " ";
+            }
+            cout << endl;
+        }
+
+        cout << endl;
+        //Menampilkan nilai matrik b
+        cout << "Matrik B : " << endl;
+
+        for (int i = 0; i < c; i++)
+        {
+            for (int j = 0; j < d; j++)
+            {
+                cout << matrikb[i][j] << " ";
+            }
+            cout << endl;
+        }
+
+        cout << endl;
+        //Menghitung matrix
+        for (int i = 0; i < a; i++)
+        {
+            for (int j = 0; j < d; j++)
+            {
+                for (int k = 0; k < c; k++)
+                {
+                    tmp += matrika[i][k] * matrikb[k][j];
+                }
+                total[i][j] = tmp;
+                tmp = 0;
+            }
+        }
+
+        cout << endl;
+
+        cout << "Hasil : " << endl;
+
+        //Mennampilak hasil perkalian
+
+        for (int i = 0; i < a; i++)
+        {
+            for (int j = 0; j < b; j++)
+            {
+                printf(" %i ", total[i][j]);
+            }
+            cout << endl;
         }
     }
 }
